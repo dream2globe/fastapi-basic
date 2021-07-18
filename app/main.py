@@ -22,9 +22,7 @@ def get_cities():
     results = []
     for city in db:
         url = f"{URL}/{city['timezone']}"
-        r = requests.get(
-            url,
-        )
+        r = requests.get(url)
         cur_time = r.json()["datetime"]
         results.append(
             {"name": city["name"], "timezon": city["timezone"], "current_time": cur_time}
